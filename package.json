@@ -1,8 +1,8 @@
 {
-  "name": "ganache-cli",
+  "name": "ganache-cli-coverage",
   "version": "6.1.7",
   "bin": {
-    "ganache-cli": "cli.js"
+    "ganache-cli-coverage": "cli.js"
   },
   "main": "lib.js",
   "directories": {
@@ -15,7 +15,7 @@
   "dependencies": {
     "async": "^2.6.1",
     "bn.js": "4.11.8",
-    "ganache-core": "agusx1211/ganache-core#coverage",
+    "ganache-core": "agusx1211/ganache-core.git#coverage",
     "source-map-support": "^0.5.3",
     "web3": "^1.0.0-beta.36",
     "yargs": "^11.0.0"
