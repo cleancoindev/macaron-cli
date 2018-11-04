@@ -145,6 +145,12 @@ module.exports = exports = function(yargs, version, isDocker) {
       type: 'boolean',
       default: false
     })
+    .option('emitFreeLogs', {
+      group: 'Chain:',
+      describe: 'This emitFreeLogs option allows instantiating an EVM instance without this limitation, enabling any contract to emit an unlimited quantity of events without modifying the block gas limit, and also to emit events during STATICCALLS. https://github.com/ethereumjs/ethereumjs-vm/pull/378). Setting this to `true` **will** cause `ganache-core` to behave differently than production environments. (default: `false`; **ONLY** set to `true` during debugging)',
+      type: 'boolean',
+      default: false
+    })
     .option('t', {
       group: 'Chain:',
       alias: 'time',

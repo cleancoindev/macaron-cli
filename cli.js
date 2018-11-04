@@ -92,6 +92,7 @@ var options = {
   vmErrorsOnRPCResponse: !argv.noVMErrorsOnRPCResponse,
   logger: logger,
   allowUnlimitedContractSize: argv.allowUnlimitedContractSize,
+  emitFreeLogs: argv.emitFreeLogs,
   time: argv.t,
   keepAliveTimeout: argv.keepAliveTimeout
 }
