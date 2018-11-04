@@ -8,14 +8,13 @@ require('source-map-support/register')
 var yargs = require('yargs');
 var Ganache = require("ganache-core");
 var pkg = require("./package.json");
-var corepkg = require("./node_modules/ganache-core/package.json");
 var URL = require("url");
 var fs = require("fs");
 var to = require("ganache-core/lib/utils/to");
 var initArgs = require("./args")
 var BN = require("bn.js");
 
-var detailedVersion = "Ganache CLI v" + pkg.version + " (ganache-core: " + corepkg.version + ")";
+var detailedVersion = "Ganache CLI v" + pkg.version;
 
 var isDocker = "DOCKER" in process.env && process.env.DOCKER.toLowerCase() === "true";
 var argv = initArgs(yargs, detailedVersion, isDocker).argv;
