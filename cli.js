@@ -5,19 +5,19 @@ require("source-map-support/register")
 
 var yargs = require("yargs");
 var pkg = require("./package.json");
-var ganache;
+var macaron;
 try {
-  ganache = require("./lib");
+  macaron = require("./lib");
 } catch(e) {
-  ganache = require("./build/ganache-core.node.cli.js");
+  macaron = require("./build/macaron-core.node.cli.js");
 }
-var to = ganache.to;
+var to = macaron.to;
 var URL = require("url");
 var fs = require("fs");
 var initArgs = require("./args")
 var BN = require("bn.js");
 
-var detailedVersion = "Ganache CLI v" + pkg.version + " (ganache-core: " + ganache.version + ")";
+var detailedVersion = "Macaron CLI v" + pkg.version + " (macaron-core: " + macaron.version + ")";
 
 var isDocker = "DOCKER" in process.env && process.env.DOCKER.toLowerCase() === "true";
 var argv = initArgs(yargs, detailedVersion, isDocker).argv;
@@ -44,7 +44,7 @@ function parseAccounts(accounts) {
 }
 
 if (argv.d) {
-  argv.s = "TestRPC is awesome!"; // Seed phrase; don't change to Ganache, maintain original determinism
+  argv.s = "TestRPC is awesome!"; // Seed phrase; don't change to Ganache or Macaron, maintain original determinism
 }
 
 if (typeof argv.unlock == "string") {
@@ -116,7 +116,7 @@ if (options.fork) {
   options.fork = fork_address + (block != null ? "@" + block : "");
 }
 
-var server = ganache.server(options);
+var server = macaron.server(options);
 
 console.log(detailedVersion);
 

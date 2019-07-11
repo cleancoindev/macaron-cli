@@ -1,14 +1,13 @@
 {
-  "name": "ganache-cli",
+  "name": "macaron-cli",
   "version": "6.2.5",
   "bin": {
-    "ganache-cli": "cli.js"
+    "macaron-cli": "cli.js"
   },
-  "main": "./build/ganache-core.node.cli.js",
+  "main": "./build/macaron-core.node.cli.js",
   "scripts": {
     "start": "node cli.js",
     "build": "webpack-cli --config ./webpack/webpack.node.config.js",
-    "docker": "docker build -t trufflesuite/ganache-cli . && docker run -p 8545:8545 trufflesuite/ganache-cli",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -35,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trufflesuite/ganache-cli"
+    "url": "https://github.com/ripio/macaron-cli"
   },
   "license": "MIT"
 }
