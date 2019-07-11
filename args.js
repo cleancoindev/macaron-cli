@@ -145,6 +145,22 @@ module.exports = exports = function(yargs, version, isDocker) {
       type: 'boolean',
       default: false
     })
+    .option('debugTopics', {
+      group: 'Coverage:',
+      type: 'string',
+      describe: 'Destination to export all emited events.',
+      normalize: true,
+      demandOption: false,
+      default: null
+    })
+    .option('dumpLogs', {
+      group: 'Coverage:',
+      type: 'string',
+      describe: 'List of event topics to ignore in the Blockchain state, provided as a file.',
+      normalize: true,
+      demandOption: false,
+      default: null
+    })
     .option('t', {
       group: 'Chain:',
       alias: 'time',

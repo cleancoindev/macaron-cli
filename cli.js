@@ -5,19 +5,19 @@ require("source-map-support/register")
 
 var yargs = require("yargs");
 var pkg = require("./package.json");
-var ganache;
-try {
-  ganache = require("./lib");
-} catch(e) {
-  ganache = require("./build/ganache-core.node.cli.js");
-}
-var to = ganache.to;
+var macaron;
+// try {
+//   macaron = require("./lib");
+// } catch(e) {
+  macaron = require("./build/macaron-core.node.cli.js");
+// }
+var to = macaron.to;
 var URL = require("url");
 var fs = require("fs");
 var initArgs = require("./args")
 var BN = require("bn.js");
 
-var detailedVersion = "Ganache CLI v" + pkg.version + " (ganache-core: " + ganache.version + ")";
+var detailedVersion = "Macaron CLI v" + pkg.version + " (macaron-core: " + macaron.version + ")";
 
 var isDocker = "DOCKER" in process.env && process.env.DOCKER.toLowerCase() === "true";
 var argv = initArgs(yargs, detailedVersion, isDocker).argv;
@@ -95,7 +95,9 @@ var options = {
   logger: logger,
   allowUnlimitedContractSize: argv.allowUnlimitedContractSize,
   time: argv.t,
-  keepAliveTimeout: argv.keepAliveTimeout
+  keepAliveTimeout: argv.keepAliveTimeout,
+  debugTopics: argv.debugTopics,
+  dumpLogs: argv.dumpLogs
 }
 
 var fork_address;
@@ -116,7 +118,7 @@ if (options.fork) {
   options.fork = fork_address + (block != null ? "@" + block : "");
 }
 
-var server = ganache.server(options);
+var server = macaron.server(options);
 
 console.log(detailedVersion);
 
@@ -190,6 +192,20 @@ server.listen(options.port, options.hostname, function(err, result) {
     console.log("Gas Limit");
     console.log("==================");
     console.log(options.gasLimit);
+  }
+
+  if (options.dumpLogs) {
+    console.log("");
+    console.log("Dump logs file");
+    console.log("==================");
+    console.log(options.dumpLogs);
+  }
+
+  if (options.debugTopics) {
+    console.log("");
+    console.log("Debug topics file");
+    console.log("==================");
+    console.log(options.debugTopics);
   }
 
   if (options.fork) {
