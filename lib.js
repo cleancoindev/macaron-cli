@@ -1,6 +1,6 @@
 // make sourcemaps work!
 require('source-map-support/register')
 
-module.exports = require("ganache-core/public-exports.js");
-module.exports.version = require("ganache-core/package.json").version;
-module.exports.to = require("ganache-core/lib/utils/to");
+module.exports = require("macaron-core/public-exports.js");
+module.exports.version = require("macaron-core/package.json").version;
+module.exports.to = require("macaron-core/lib/utils/to");
