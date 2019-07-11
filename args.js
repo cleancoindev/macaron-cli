@@ -145,6 +145,12 @@ module.exports = exports = function(yargs, version, isDocker) {
       type: 'boolean',
       default: false
     })
+    .option('emitFreeLogs', {
+      group: 'Chain:',
+      describe: 'Allows emiting events during staticcalls, without paying gas',
+      type: 'boolean',
+      default: false
+    })
     .option('debugTopics', {
       group: 'Coverage:',
       type: 'string',

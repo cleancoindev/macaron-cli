@@ -97,7 +97,8 @@ var options = {
   time: argv.t,
   keepAliveTimeout: argv.keepAliveTimeout,
   debugTopics: argv.debugTopics,
-  dumpLogs: argv.dumpLogs
+  dumpLogs: argv.dumpLogs,
+  emitFreeLogs: argv.emitFreeLogs
 }
 
 var fork_address;
