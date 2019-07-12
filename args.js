@@ -167,6 +167,14 @@ module.exports = exports = function(yargs, version, isDocker) {
       demandOption: false,
       default: null
     })
+    .option('hardFork', {
+      group: 'Chain:',
+      type: 'string',
+      describe: 'Version of the EVM to run.',
+      normalize: true,
+      demandOption: false,
+      default: "petersburg"
+    })
     .option('t', {
       group: 'Chain:',
       alias: 'time',

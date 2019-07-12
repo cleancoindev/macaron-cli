@@ -98,7 +98,8 @@ var options = {
   keepAliveTimeout: argv.keepAliveTimeout,
   debugTopics: argv.debugTopics,
   dumpLogs: argv.dumpLogs,
-  emitFreeLogs: argv.emitFreeLogs
+  emitFreeLogs: argv.emitFreeLogs,
+  hardFork: argv.hardFork
 }
 
 var fork_address;
@@ -207,6 +208,13 @@ server.listen(options.port, options.hostname, function(err, result) {
     console.log("Debug topics file");
     console.log("==================");
     console.log(options.debugTopics);
+  }
+
+  if (options.hardFork) {
+    console.log("");
+    console.log("EVM Version");
+    console.log("==================");
+    console.log(options.hardFork);
   }
 
   if (options.fork) {
