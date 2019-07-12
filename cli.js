@@ -6,11 +6,8 @@ require("source-map-support/register")
 var yargs = require("yargs");
 var pkg = require("./package.json");
 var macaron;
-// try {
-//   macaron = require("./lib");
-// } catch(e) {
-  macaron = require("./build/macaron-core.node.cli.js");
-// }
+macaron = require("./build/macaron-core.node.cli.js");
+
 var to = macaron.to;
 var URL = require("url");
 var fs = require("fs");
@@ -44,7 +41,7 @@ function parseAccounts(accounts) {
 }
 
 if (argv.d) {
-  argv.s = "TestRPC is awesome!"; // Seed phrase; don't change to Ganache, maintain original determinism
+  argv.s = "TestRPC is awesome!"; // Seed phrase; don't change to Ganache or Macaron, maintain original determinism
 }
 
 if (typeof argv.unlock == "string") {

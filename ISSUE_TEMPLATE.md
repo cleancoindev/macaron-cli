@@ -66,7 +66,7 @@ Without good information here, it will take much longer to get your issue
 resolved!
 
 The best strategy here is to assume the maintainer reading this just started
-working on the Ganache project yesterday.
+working on the Macaron project yesterday.
 
 If possible, please provide a link to a live example, or an unambiguous set of
 steps to reproduce this bug. Include code to reproduce, if relevant.
