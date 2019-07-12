@@ -6,11 +6,8 @@ require("source-map-support/register")
 var yargs = require("yargs");
 var pkg = require("./package.json");
 var macaron;
-try {
-  macaron = require("./lib");
-} catch(e) {
-  macaron = require("./build/macaron-core.node.cli.js");
-}
+macaron = require("./build/macaron-core.node.cli.js");
+
 var to = macaron.to;
 var URL = require("url");
 var fs = require("fs");
@@ -95,7 +92,11 @@ var options = {
   logger: logger,
   allowUnlimitedContractSize: argv.allowUnlimitedContractSize,
   time: argv.t,
-  keepAliveTimeout: argv.keepAliveTimeout
+  keepAliveTimeout: argv.keepAliveTimeout,
+  debugTopics: argv.debugTopics,
+  dumpLogs: argv.dumpLogs,
+  emitFreeLogs: argv.emitFreeLogs,
+  hardFork: argv.hardFork
 }
 
 var fork_address;
@@ -190,6 +191,27 @@ server.listen(options.port, options.hostname, function(err, result) {
     console.log("Gas Limit");
     console.log("==================");
     console.log(options.gasLimit);
+  }
+
+  if (options.dumpLogs) {
+    console.log("");
+    console.log("Dump logs file");
+    console.log("==================");
+    console.log(options.dumpLogs);
+  }
+
+  if (options.debugTopics) {
+    console.log("");
+    console.log("Debug topics file");
+    console.log("==================");
+    console.log(options.debugTopics);
+  }
+
+  if (options.hardFork) {
+    console.log("");
+    console.log("EVM Version");
+    console.log("==================");
+    console.log(options.hardFork);
   }
 
   if (options.fork) {

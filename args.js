@@ -145,6 +145,36 @@ module.exports = exports = function(yargs, version, isDocker) {
       type: 'boolean',
       default: false
     })
+    .option('emitFreeLogs', {
+      group: 'Chain:',
+      describe: 'Allows emiting events during staticcalls, without paying gas',
+      type: 'boolean',
+      default: false
+    })
+    .option('debugTopics', {
+      group: 'Coverage:',
+      type: 'string',
+      describe: 'Destination to export all emited events.',
+      normalize: true,
+      demandOption: false,
+      default: null
+    })
+    .option('dumpLogs', {
+      group: 'Coverage:',
+      type: 'string',
+      describe: 'List of event topics to ignore in the Blockchain state, provided as a file.',
+      normalize: true,
+      demandOption: false,
+      default: null
+    })
+    .option('hardFork', {
+      group: 'Chain:',
+      type: 'string',
+      describe: 'Version of the EVM to run.',
+      normalize: true,
+      demandOption: false,
+      default: "petersburg"
+    })
     .option('t', {
       group: 'Chain:',
       alias: 'time',
